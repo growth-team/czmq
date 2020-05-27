@@ -152,9 +152,6 @@
 #   ifndef __NO_CTYPE
 #   define __NO_CTYPE                   //  Suppress warnings on tolower()
 #   endif
-#   ifndef _DEFAULT_SOURCE
-#   define _DEFAULT_SOURCE
-#   endif
 #elif (defined (Mips))
 #   define __UTYPE_MIPS
 #   define __UNIX__
