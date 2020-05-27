@@ -153,10 +153,10 @@ zdir_new (const char *path, const char *parent)
         struct dirent *entry = (struct dirent *) malloc (dirent_size);
         struct dirent *result;
 
-        int rc = readdir_r (handle, entry, &result);
+        int rc = readdir (handle, entry, &result);
         while (rc == 0 && result != NULL) {
             s_posix_populate_entry (self, entry);
-            rc = readdir_r (handle, entry, &result);
+            rc = readdir (handle, entry, &result);
         }
         free (entry);
         closedir (handle);
