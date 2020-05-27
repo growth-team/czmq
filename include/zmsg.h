@@ -83,7 +83,7 @@ CZMQ_EXPORT int
 //  Returns 0 on success, -1 on error.
 CZMQ_EXPORT int
     zmsg_addmem (zmsg_t *self, const void *src, size_t size);
-    
+
 //  Push string as new frame to front of message.
 //  Returns 0 on success, -1 on error.
 CZMQ_EXPORT int
@@ -118,7 +118,7 @@ CZMQ_EXPORT zframe_t *
 CZMQ_EXPORT void
     zmsg_remove (zmsg_t *self, zframe_t *frame);
 
-//  Set cursor to first frame in message. Returns frame, or NULL, if the 
+//  Set cursor to first frame in message. Returns frame, or NULL, if the
 //  message is empty. Use this to navigate the frames as a list.
 CZMQ_EXPORT zframe_t *
     zmsg_first (zmsg_t *self);
@@ -132,7 +132,7 @@ CZMQ_EXPORT zframe_t *
 CZMQ_EXPORT zframe_t *
     zmsg_last (zmsg_t *self);
 
-//  Save message to an open file, return 0 if OK, else -1. The message is 
+//  Save message to an open file, return 0 if OK, else -1. The message is
 //  saved as a series of frames, each with length and data. Note that the
 //  file is NOT guaranteed to be portable between operating systems, not
 //  versions of CZMQ. The file format is at present undocumented and liable
@@ -141,7 +141,7 @@ CZMQ_EXPORT int
     zmsg_save (zmsg_t *self, FILE *file);
 
 //  Load/append an open file into message, create new message if
-//  null message provided. Returns NULL if the message could not 
+//  null message provided. Returns NULL if the message could not
 //  be loaded.
 CZMQ_EXPORT zmsg_t *
     zmsg_load (zmsg_t *self, FILE *file);
@@ -154,7 +154,7 @@ CZMQ_EXPORT size_t
     zmsg_encode (zmsg_t *self, byte **buffer);
 
 //  Decodes a serialized message buffer created by zmsg_encode () and returns
-//  a new zmsg_t object. Returns NULL if the buffer was badly formatted or 
+//  a new zmsg_t object. Returns NULL if the buffer was badly formatted or
 //  there was insufficient memory to work.
 CZMQ_EXPORT zmsg_t *
     zmsg_decode (byte *buffer, size_t buffer_size);
@@ -204,7 +204,9 @@ CZMQ_EXPORT int zmsg_pushstrf (zmsg_t *self, const char *format, ...) CHECK_PRIN
 #endif
 
 //  Deprecated method aliases
-#define zmsg_dump(s) zmsg_print(s)
+CZMQ_EXPORT void
+    zmsg_void (zmsg_t *self);
+
 #define zmsg_dump_to_stream(s,F) zmsg_fprint(s,F)
 
 #endif
