@@ -205,7 +205,7 @@ CZMQ_EXPORT int zmsg_pushstrf (zmsg_t *self, const char *format, ...) CHECK_PRIN
 
 //  Deprecated method aliases
 CZMQ_EXPORT void
-    zmsg_void (zmsg_t *self);
+    zmsg_dump (zmsg_t *self);
 
 #define zmsg_dump_to_stream(s,F) zmsg_fprint(s,F)
 
